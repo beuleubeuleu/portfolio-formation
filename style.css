@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&family=Zen+Dots&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+:root {
+    --white: rgb(255,255,255);
+    --light-gray: rgb(238,238,238);
+    --gray: rgb(183,183,183);
+    --dark-gray: rgb(51,51,51);
+    --very-dark-gray: rgb(30,30,30);
+    --yellow: rgb(230,230,0);
+    --red: rgb(141,7,6)
+}
+
+.flex {
+    display: flex;
+}
+
+.white-shadow-left {
+    box-shadow: -8px 8px 0 ;
+}
+.white-shadow-right {
+    box-shadow: 8px 8px 0 ;
+}
+.textshadow {
+    text-shadow: 0 5px 6px var(--very-dark-gray) ;
+}
+.boxshadow {
+    box-shadow: 0 5px 8px 8px rgba(0,0,0, 0.3);
+}
+html {
+    font-family: "Zen Dots", sans-serif;
+    background: var(--gray);
+    font-size: 18px;
+}
+.container {
+    color: var(--light-gray);
+    width: 100%;
+    margin: auto;
+}
+h1 {
+    color: var(--yellow);
+}
+header {
+    background: var(--very-dark-gray);
+}
+.navbar {
+    justify-content: space-between;
+    align-items: center;
+
+    width: min(1196px, 90%);
+
+    margin: 1rem auto;
+    padding: 1rem 0;
+}
+.navlinks {
+    list-style-type: none;
+    gap: 1rem;
+}
+.main {
+    height: 80vh;
+    background: var(--very-dark-gray);
+}
+.home {
+    width: min(1196px, 90%);
+    margin: auto;
+    padding: 4rem 0;
+}
+.title {
+    width: 675px;
+    font-size: 3rem
+}
