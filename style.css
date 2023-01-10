@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
@@ -52,7 +53,7 @@ img {
 
 .title {
     display: inline-block;
-    font-size: 3rem;
+    max-font-size: 3rem;
     margin-bottom: 6em;
 }
 
@@ -141,12 +142,74 @@ header {
     flex-direction: column;
 }
 
+.home .title {
+    font-size: 3rem;
+}
+
 .about {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
     grid-gap: 5rem;
     font-size: 0.8rem;
 }
 
+.projects {
+    max-width: 100%;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+                        "pres title"
+                        "proj proj";
+    grid-gap: 5rem;
+}
+
+.description-projets {
+    grid-area: pres;
+    text-shadow: 0 2px 2px var(--very-dark-gray);
+
+    z-index: 5;
+}
+
+.projects .title {
+    min-width: 50%;
+    grid-area: title;
+    margin: 0;
+}
+
+.list-projet {
+    grid-area: proj;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+.projet-component {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1rem
+}
+
+.titre-projet {
+    font-size: 0.8rem;
+}
+
+.projet-component img {
+    min-width: 250px;
+    object-fit: cover;
+}
+
+.button {
+    display: none;
+}
+
+.link-active-project:hover{
+    color: var(--yellow);
+    text-decoration: underline;
+}
 @media screen and (max-width: 1000px) {
     .container {
         margin-bottom: 0;
@@ -157,7 +220,8 @@ header {
         scroll-snap-type: y mandatory;
     }
     .title {
-        font-size: 1rem;
+        font-size: 1rem !important;
+        align-self: flex-end;
     }
 
     .white-shadow-left {
@@ -211,6 +275,10 @@ header {
         padding: 1rem;
     }
 
+    .home .title {
+        align-self: flex-start;
+    }
+
     .about {
         display: flex;
         flex-direction: column-reverse;
@@ -220,8 +288,73 @@ header {
         gap: 0;
     }
 
-    .about .title {
-        align-self: flex-end;
+    .projects {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+
+
+        gap: 10%;
     }
+
+    .description-projets {
+        height: 299px;
+        font-size: 0.6rem;
+    }
+
+    .list-projet {
+        height: 100%;
+
+        margin: 0 auto;
+
+        position: relative;
+
+    }
+
+    .projet-component {
+        z-index: -1;
+        opacity: 0;
+        transition: all 300ms ease-in-out;
+
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .projet-component.active {
+        opacity: 1;
+        z-index: 99;
+        box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
+    }
+
+    .projet-component.prev {
+        z-index: 2;
+        opacity: 0.25;
+        transform: translate(-125%, -50%);
+    }
+
+    .projet-component.next {
+        z-index: 2;
+        opacity: 0.25;
+        transform: translate(25%, -50%);
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 40px;
+        height: 40px;
+        font-weight: 900;
+
+        padding: 8px;
+        border: 1px solid var(--white);
+        border-radius: 50px;
+        z-index: 5;
+    }
+
+
 }
 
