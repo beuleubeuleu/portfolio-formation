@@ -1,6 +1,4 @@
-// I will be creating a different pen with touch support but right // now I have no time for it due to school
-
-const slides = document.querySelectorAll(".projet-component");
+const projects = document.querySelectorAll(".projet-component");
 const button = document.querySelectorAll(".button");
 
 const projectNumber = document.querySelector(".nombre-projet")
@@ -28,10 +26,8 @@ for (let i = 0; i < button.length; i++) {
     button[i].addEventListener("click", () => i === 0 ? gotoPrev() : gotoNext());
 }
 
-projectNumber.textContent = `${current+1}/${slides.length}`
-console.log(checkItOut)
+projectNumber.textContent = `${current + 1}/${projects.length}`
 checkItOut.href = projectLinks[current]
-
 
 
 const gotoNum = number => {
@@ -39,29 +35,43 @@ const gotoNum = number => {
     prev = current - 1;
     next = current + 1;
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-        slides[i].classList.remove("prev");
-        slides[i].classList.remove("next");
+    for (let i = 0; i < projects.length; i++) {
+        projects[i].classList.remove("active");
+        projects[i].classList.remove("prev");
+        projects[i].classList.remove("next");
     }
 
-    if (next === slides.length) {
+    if (next === projects.length) {
         next = 0;
     }
 
     if (prev === -1) {
-        prev = slides.length-1;
+        prev = projects.length - 1;
     }
 
-    slides[current].classList.add("active");
-    slides[prev].classList.add("prev");
-    slides[next].classList.add("next");
+    projects[current].classList.add("active");
+    projects[prev].classList.add("prev");
+    projects[next].classList.add("next");
     description.textContent = descriptions[current]
-    projectNumber.textContent = `${current+1}/${slides.length}`
+    projectNumber.textContent = `${current + 1}/${projects.length}`
     checkItOut.href = projectLinks[current]
 }
 
 
-const gotoPrev = () => current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
+const gotoPrev = () => current > 0 ? gotoNum(current - 1) : gotoNum(projects.length - 1);
 
-const gotoNext = () => current < slides.length-1 ? gotoNum(current + 1) : gotoNum(0);
+const gotoNext = () => current < projects.length - 1 ? gotoNum(current + 1) : gotoNum(0);
+
+for (let i = 0; i < projects.length; i++) {
+    projects[i].addEventListener("mouseover", () => {
+        for (let i = 0; i < projects.length; i++) {
+            console.log("reset class")
+            projects[i].classList.remove("active");
+            projects[i].classList.remove("prev");
+            projects[i].classList.remove("next");
+        }
+        projects[i].classList.add("active")
+        description.textContent = descriptions[i]
+        checkItOut.href = projectLinks[i]
+    })
+}

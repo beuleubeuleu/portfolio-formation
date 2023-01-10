@@ -120,14 +120,21 @@ header {
 
 .menu-button {
     display: none;
-    font-size: 3rem;
+    font-size: 1rem;
     line-height: 0.8;
+
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 
     transition: all 0.3s linear;
     animation: pulse 1s 3;
 }
+.menu-button img{
+    transition: all 0.3s linear;
+}
 
-.open {
+.open img{
     transform: rotateX(180deg);
 }
 
@@ -178,6 +185,8 @@ header {
 }
 
 .description-projets {
+    height: 200px;
+
     grid-area: pres;
     text-shadow: 0 2px 2px var(--very-dark-gray);
 
@@ -228,6 +237,20 @@ header {
 
 .nombre-projet {
     display:none
+}
+
+@media screen and (min-width: 1000px) {
+    .projet-component {
+        transition: all 0.5s linear;
+    }
+    .active {
+        font-size: 1rem;
+        width: 300px;
+    }
+    .active img{
+        width: 100%;
+    }
+
 }
 @media screen and (max-width: 1000px) {
     .container {
@@ -287,7 +310,7 @@ header {
     }
 
     .menu-button {
-        display: block;
+        display: flex;
     }
 
     .page {
