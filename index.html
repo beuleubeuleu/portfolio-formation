@@ -22,7 +22,7 @@
 
         <ul class="navlinks flex">
             <li><a href="#projects">Projects</a></li>
-            <li>Pour me joindre</li>
+            <li><a href="#contacts">Pour me joindre</a></li>
             <li><a href="#about">À propos</a></li>
         </ul>
     </nav>
@@ -81,12 +81,29 @@
 
     <section id="contacts" class="page contacts flex">
 
-        <form></form>
-
-        <div class="contact-links">
+        <div class="links-wrapper">
             <div class="title">
                 <h2 class="white-shadow-left">Contacts</h2>
             </div>
+
+            <div class="contact-links flex">
+                <div class="email"><img src="images/arobase.svg" alt="#"> <a href="#">billyklotz789@gmail.com</a></div>
+                <div class="github"><img src="images/github.svg" alt="#"><a href="https://github.com/beuleubeuleu">github.com/beuleubeuleu</a></div>
+                <div class="linkedin"><img src="images/LinkedIn.svg" alt="#"><a href="#"></a></div>
+            </div>
+        </div>
+
+        <div class="form-wrapper">
+
+            <div class="form-intro">
+                <p>Si vous voulez me laisser un message,vous pouvez m’envoyer un e-mail ou utliliser le formulaire ci-dessous.</p>
+            </div>
+
+            <form class="form flex" >
+                <input type="text" name="reach-back" id="inputInfo" required placeholder="email / telephone ...">
+                <textarea class="message" placeholder="message gentil" ></textarea>
+                <button class="send-form" type="submit">Envoyer</button>
+            </form>
         </div>
 
     </section>
