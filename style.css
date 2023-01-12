@@ -204,13 +204,25 @@ header {
 .list-projet {
     grid-area: proj;
 
-    justify-content: space-between;
-    align-items: center;
+    overflow-x: scroll;
+    /* Hidden scroll bar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 
     width: 100%;
 }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.list-projet::-webkit-scrollbar {
+    display: none;
+}
 
-.projet-component {
+.create-project {
+    align-items: flex-end;
+    gap: 1rem;
+
+}
+
+.create-project >* {
     display: flex;
 
     flex-direction: column;
@@ -218,6 +230,7 @@ header {
     align-items: center;
     gap: 1rem;
 
+    min-width: 250px;
     opacity: 0.5;
     transition: all 300ms ease-in-out;
 }
@@ -447,28 +460,41 @@ header {
 
     }
 
-    .projet-component {
+    .list-projet {
+        overflow-x: visible;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .create-project {
+        width: 100%;
+        height: 50%;
+    }
+
+    .create-project >* {
         z-index: -1;
         opacity: 0;
 
+        min-width: auto;
         position: absolute;
         left: 50%;
         transform: translate(-50%);
     }
 
-    .projet-component.active {
+    .create-project >*.active {
         opacity: 1;
         z-index: 99;
         box-shadow: 0 0 105px -35px rgba(0, 0, 0, 0.75);
     }
 
-    .projet-component.prev {
+    .create-project >*.prev {
         z-index: 2;
         opacity: 0.25;
         transform: translate(-125%, -50%);
     }
 
-    .projet-component.next {
+    .create-project >*.next {
         z-index: 2;
         opacity: 0.25;
         transform: translate(25%, -50%);
