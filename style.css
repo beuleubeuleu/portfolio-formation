@@ -217,6 +217,7 @@ header {
 }
 
 .create-project {
+    justify-content: center;
     align-items: flex-end;
     gap: 1rem;
 
@@ -412,7 +413,7 @@ header {
     }
 
     .navlinks-mobile {
-        padding: 1rem 0;
+        padding: 1rem;
     }
 
     .menu-button {
